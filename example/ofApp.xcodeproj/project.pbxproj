@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		278C8F3E1A815D62005A7007 /* ccv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278C8F3D1A815D62005A7007 /* ccv.a */; };
-		278C8F531A816966005A7007 /* libcublas.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 278C8F511A816966005A7007 /* libcublas.dylib */; };
-		278C8F541A816966005A7007 /* libcudart.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 278C8F521A816966005A7007 /* libcudart.dylib */; };
+		279EEB0B1A93F8350099B5B4 /* ccv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 279EEB0A1A93F8350099B5B4 /* ccv.a */; };
 		6474CBF619BCE019003C94E2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474CBF019BCE00B003C94E2 /* AVFoundation.framework */; };
 		6474CBF719BCE019003C94E2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474CBF119BCE00B003C94E2 /* CoreMedia.framework */; };
 		6474CBF819BCE019003C94E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474CBF219BCE00B003C94E2 /* QuartzCore.framework */; };
@@ -22,6 +20,7 @@
 		E45BE9800E8CC7DD009D7055 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9760E8CC7DD009D7055 /* CoreFoundation.framework */; };
 		E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9770E8CC7DD009D7055 /* CoreServices.framework */; };
 		E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9790E8CC7DD009D7055 /* OpenGL.framework */; };
+		E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424410CC5A17004149E2 /* AppKit.framework */; };
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
@@ -63,11 +62,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		278C8F371A815D62005A7007 /* ofxCcv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCcv.h; sourceTree = "<group>"; };
-		278C8F3B1A815D62005A7007 /* ccv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ccv.h; sourceTree = "<group>"; };
-		278C8F3D1A815D62005A7007 /* ccv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ccv.a; sourceTree = "<group>"; };
-		278C8F511A816966005A7007 /* libcublas.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcublas.dylib; path = ../../../../../../../../../usr/local/cuda/lib/libcublas.dylib; sourceTree = "<group>"; };
-		278C8F521A816966005A7007 /* libcudart.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcudart.dylib; path = ../../../../../../../../../usr/local/cuda/lib/libcudart.dylib; sourceTree = "<group>"; };
+		279EEB031A93F8350099B5B4 /* ofxCcv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCcv.h; sourceTree = "<group>"; };
+		279EEB071A93F8350099B5B4 /* ccv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ccv.h; sourceTree = "<group>"; };
+		279EEB091A93F8350099B5B4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		279EEB0A1A93F8350099B5B4 /* ccv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ccv.a; sourceTree = "<group>"; };
 		6474CBF019BCE00B003C94E2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6474CBF119BCE00B003C94E2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6474CBF219BCE00B003C94E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -80,6 +78,7 @@
 		E45BE9760E8CC7DD009D7055 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		E45BE9770E8CC7DD009D7055 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		E4B69B5B0A3A1756003C02F2 /* ofAppDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ofAppDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
@@ -108,14 +107,13 @@
 				E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */,
 				E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */,
 				E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */,
-				278C8F531A816966005A7007 /* libcublas.dylib in Frameworks */,
 				E45BE97F0E8CC7DD009D7055 /* CoreAudio.framework in Frameworks */,
 				E45BE9800E8CC7DD009D7055 /* CoreFoundation.framework in Frameworks */,
 				E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */,
 				E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */,
+				E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */,
 				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
-				278C8F3E1A815D62005A7007 /* ccv.a in Frameworks */,
-				278C8F541A816966005A7007 /* libcudart.dylib in Frameworks */,
+				279EEB0B1A93F8350099B5B4 /* ccv.a in Frameworks */,
 				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
 				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
 				E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */,
@@ -125,56 +123,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		278C8F351A815D62005A7007 /* ofxCcv */ = {
+		279EEB011A93F8350099B5B4 /* ofxCcv */ = {
 			isa = PBXGroup;
 			children = (
-				278C8F361A815D62005A7007 /* src */,
-				278C8F381A815D62005A7007 /* libs */,
+				279EEB021A93F8350099B5B4 /* src */,
+				279EEB041A93F8350099B5B4 /* libs */,
 			);
 			name = ofxCcv;
 			sourceTree = "<group>";
 		};
-		278C8F361A815D62005A7007 /* src */ = {
+		279EEB021A93F8350099B5B4 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				278C8F371A815D62005A7007 /* ofxCcv.h */,
+				279EEB031A93F8350099B5B4 /* ofxCcv.h */,
 			);
 			name = src;
 			path = ../src;
 			sourceTree = "<group>";
 		};
-		278C8F381A815D62005A7007 /* libs */ = {
+		279EEB041A93F8350099B5B4 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				278C8F391A815D62005A7007 /* ccv */,
+				279EEB051A93F8350099B5B4 /* ccv */,
 			);
 			name = libs;
 			path = ../libs;
 			sourceTree = "<group>";
 		};
-		278C8F391A815D62005A7007 /* ccv */ = {
+		279EEB051A93F8350099B5B4 /* ccv */ = {
 			isa = PBXGroup;
 			children = (
-				278C8F3A1A815D62005A7007 /* include */,
-				278C8F3C1A815D62005A7007 /* lib */,
+				279EEB061A93F8350099B5B4 /* include */,
+				279EEB081A93F8350099B5B4 /* lib */,
 			);
 			path = ccv;
 			sourceTree = "<group>";
 		};
-		278C8F3A1A815D62005A7007 /* include */ = {
+		279EEB061A93F8350099B5B4 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				278C8F3B1A815D62005A7007 /* ccv.h */,
+				279EEB071A93F8350099B5B4 /* ccv.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		278C8F3C1A815D62005A7007 /* lib */ = {
+		279EEB081A93F8350099B5B4 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				278C8F511A816966005A7007 /* libcublas.dylib */,
-				278C8F521A816966005A7007 /* libcudart.dylib */,
-				278C8F3D1A815D62005A7007 /* ccv.a */,
+				279EEB091A93F8350099B5B4 /* .gitignore */,
+				279EEB0A1A93F8350099B5B4 /* ccv.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -182,7 +179,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				278C8F351A815D62005A7007 /* ofxCcv */,
+				279EEB011A93F8350099B5B4 /* ofxCcv */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -204,6 +201,7 @@
 				E45BE9760E8CC7DD009D7055 /* CoreFoundation.framework */,
 				E45BE9770E8CC7DD009D7055 /* CoreServices.framework */,
 				E45BE9790E8CC7DD009D7055 /* OpenGL.framework */,
+				E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */,
 				E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */,
 				E7E077E715D3B6510020DFD4 /* QTKit.framework */,
 			);
@@ -371,8 +369,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				ARCHS = "$(NATIVE_ARCH)";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
@@ -389,14 +386,12 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
 					"-mtune=native",
 				);
 				SDKROOT = macosx;
-				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -404,8 +399,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				ARCHS = "$(NATIVE_ARCH)";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -423,23 +417,19 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
 					"-mtune=native",
 				);
 				SDKROOT = macosx;
-				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
 		E4B69B600A3A1757003C02F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -454,17 +444,15 @@
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LD_RUNPATH_SEARCH_PATHS = /usr/local/cuda/lib;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/kyle/Documents/openFrameworks/addons/ofxOpenCv/libs/opencv/lib/osx,
 					/Users/kyle/Documents/openFrameworks/addons/ofxCcv/libs/ccv/lib,
-					/usr/local/cuda/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = ofAppDebug;
 				USER_HEADER_SEARCH_PATHS = "../../../addons/ofxCv/libs/ofxCv/include/ ../../../addons/ofxOpenCv/libs/opencv/include/ ../../../addons/ofxCv/libs/CLD/include/ ../libs/ccv/include/";
-				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -472,9 +460,7 @@
 		E4B69B610A3A1757003C02F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -488,17 +474,15 @@
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LD_RUNPATH_SEARCH_PATHS = /usr/local/cuda/lib;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/kyle/Documents/openFrameworks/addons/ofxOpenCv/libs/opencv/lib/osx,
 					/Users/kyle/Documents/openFrameworks/addons/ofxCcv/libs/ccv/lib,
-					/usr/local/cuda/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = ofApp;
 				USER_HEADER_SEARCH_PATHS = "../../../addons/ofxCv/libs/ofxCv/include/ ../../../addons/ofxOpenCv/libs/opencv/include/ ../../../addons/ofxCv/libs/CLD/include/ ../libs/ccv/include/";
-				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
