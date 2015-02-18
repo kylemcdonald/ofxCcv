@@ -6,7 +6,7 @@ This is an addon for openFrameworks that wraps the computer vision library [libc
 
 ## 32-bit
 
-Before you can use this addon to classify images, you will need to download and move two files.
+Before you can use this addon to classify images, you will need to either download and move two files from libccv, or run `download-classifier.sh`.
 
 1. Download [libccv](http://libccv.org/)
 2. Copy `image-net-2012.sqlite3` and `image-net-2012.words` from `ccv/samples` into `openFrameworks/addons/ofxCcv/example/bin/data/`
