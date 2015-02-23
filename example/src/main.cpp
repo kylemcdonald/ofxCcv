@@ -32,9 +32,9 @@ public:
         for(int i = 0; i < results.size(); i++) {
             ofSetColor(ofColor::white);
             ofFill();
-            ofDrawRectangle(0, 0, 100, 10);
+            ofRect(0, 0, 100, 10);
             ofSetColor(ofColor::black);
-            ofDrawRectangle(1, 1, (100-2) * results[i].confidence, 10-2);
+            ofRect(1, 1, (100-2) * results[i].confidence, 10-2);
             ofSetColor(ofColor::white);
             ofDrawBitmapString(results[i].imageNetName, 105, 10);
             ofTranslate(0, 15);

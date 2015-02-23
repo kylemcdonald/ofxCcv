@@ -4,16 +4,16 @@ extern "C" {
 #include "ccv.h"
 }
 
-ccv_dense_matrix_t toCcv(const ofPixels& pix) {
+ccv_dense_matrix_t toCcv(ofPixels& pix) {
     return ccv_dense_matrix(pix.getHeight(),
                             pix.getWidth(),
                             CCV_8U | CCV_C3,
-                            (void*) pix.getData(),
+                            (void*) pix.getPixels(),
                             0);
 }
 
-ccv_dense_matrix_t toCcv(const ofBaseHasPixels& pix) {
-    return toCcv(pix.getPixels());
+ccv_dense_matrix_t toCcv(ofBaseHasPixels& pix) {
+    return toCcv(pix.getPixelsRef());
 }
 
 
@@ -42,13 +42,10 @@ public:
     void setup(string network) {
         string imagenetFilename = ofToDataPath(network);
         convnet = ccv_convnet_read(0, imagenetFilename.c_str());
-        ofBuffer buffer = ofBufferFromFile("image-net-2012.words");
-        for(auto line : buffer.getLines()) {
-            words.push_back(line);
-        }
+        words = ofSplitString(ofBufferFromFile("image-net-2012.words"), "\n");
     }
     template <class T>
-    vector<Classification> classify(const T& img, int maxResults = 5) {
+    vector<Classification> classify( T& img, int maxResults = 5) {
         vector<Classification> results;
         ccv_dense_matrix_t image;
         image = toCcv(img);
