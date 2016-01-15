@@ -36,7 +36,7 @@ public:
             ofSetColor(ofColor::black);
             ofDrawRectangle(1, 1, (100-2) * results[i].confidence, 10-2);
             ofSetColor(ofColor::white);
-            ofDrawBitmapString(results[i].imageNetName, 105, 10);
+            ofDrawBitmapStringHighlight(results[i].imageNetName, 105, 10);
             ofTranslate(0, 15);
         }
         ofPopStyle();
