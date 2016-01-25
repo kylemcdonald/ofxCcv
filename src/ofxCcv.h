@@ -1,20 +1,13 @@
 #pragma once
 
+#include "ofMain.h"
+
 extern "C" {
 #include "ccv.h"
 }
 
-ccv_dense_matrix_t toCcv(const ofPixels& pix) {
-    return ccv_dense_matrix(pix.getHeight(),
-                            pix.getWidth(),
-                            CCV_8U | CCV_C3,
-                            (void*) pix.getData(),
-                            0);
-}
-
-ccv_dense_matrix_t toCcv(const ofBaseHasPixels& pix) {
-    return toCcv(pix.getPixels());
-}
+ccv_dense_matrix_t toCcv(const ofPixels& pix);
+ccv_dense_matrix_t toCcv(const ofBaseHasPixels& pix);
 
 
 class ofxCcv {
@@ -30,23 +23,10 @@ public:
         float confidence;
     };
     
-    ofxCcv() {
-        ccv_enable_default_cache();
-    }
-    ~ofxCcv() {
-        if(convnet) {
-            ccv_convnet_free(convnet);
-        }
-        ccv_drain_cache();
-    }
-    void setup(string network) {
-        string imagenetFilename = ofToDataPath(network);
-        convnet = ccv_convnet_read(0, imagenetFilename.c_str());
-        ofBuffer buffer = ofBufferFromFile("image-net-2012.words");
-        for(auto line : buffer.getLines()) {
-            words.push_back(line);
-        }
-    }
+    ofxCcv();
+    ~ofxCcv();
+    void setup(string network);
+    
     template <class T>
     vector<Classification> classify(const T& img, int maxResults = 5) {
         vector<Classification> results;
