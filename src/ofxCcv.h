@@ -27,6 +27,9 @@ public:
     ~ofxCcv();
     void setup(string network);
     
+    vector<float> encode(ofPixels & img);
+    vector<float> encode(ofBaseHasPixels & img) {return encode(img.getPixels());}
+    
     template <class T>
     vector<Classification> classify(const T& img, int maxResults = 5) {
         vector<Classification> results;
@@ -50,4 +53,5 @@ public:
         ccv_matrix_free(input);
         return results;
     }
+    
 };

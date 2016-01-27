@@ -3,10 +3,10 @@
 void ofApp::setup() {
     //ccv.setup("image-net-2012-vgg-d.sqlite3");
     ccv.setup("image-net-2012.sqlite3");
-    
-    //        ofPixels img;
-    //        ofLoadImage(img, "nature.png");
-    //        ccv.classify(img);
+               
+//    ofPixels img;
+//    ofLoadImage(img, "/Users/gene/Code/of_v0.9.0_osx_release/addons/ofxCcv/example-encode/bin/data/dog.jpg");
+//    ccv.classify(img);
     
     cam.initGrabber(640, 480);
 }

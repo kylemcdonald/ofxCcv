@@ -31,3 +31,23 @@ void ofxCcv::setup(string network) {
         words.push_back(line);
     }
 }
+
+// get activations of the last layer to get compact representation.
+vector<float> ofxCcv::encode(ofPixels & img) {
+    vector<float> data;
+    ofImage imgCopy;
+    imgCopy.setFromPixels(img);
+    // resize hack. some resolutions cause runtime crash. not sure why.
+    imgCopy.resize(300, 300);
+    ccv_dense_matrix_t image;
+    image = toCcv(imgCopy);
+    ccv_dense_matrix_t* input = 0;
+    ccv_size_t size = ccv_size(225, 225);
+    ccv_convnet_input_formation(size, &image, &input);
+    ccv_dense_matrix_t* b = 0;
+    ccv_convnet_encode(convnet, &input, &b, 1);
+    for (int i = 0; i < b->rows * b->cols; i++) {
+        data.push_back(b->data.f32[i]);
+    }
+    return data;
+}
