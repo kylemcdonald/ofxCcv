@@ -9,17 +9,24 @@ void ofApp::setup() {
     dog.load("dog.jpg");
     car.load("car.jpg");
   
-    // encode gives you a 1000-dim vector with the activations of the last
-    // layer in the network (the 1000 imageNet output classes).
-    // it can be interpreted as a compact representation of an image,
-    // which can be used for statistical post-processing
-    vector<float> catFeatures = ccv.encode(cat);
-    vector<float> dogFeatures = ccv.encode(dog);
-    vector<float> carFeatures = ccv.encode(car);
-    
-    // here we take the correlation of the three images and
-    // see that the correlation between the cat and dog pictures
-    // is much higher than the other two
+    // encode returns a vector containing the activations of a given
+    // layer in the network. So if we run it on the last layer, i.e.
+    // ccv.encode(myImage, ccv.numLayers()) we will receive a 1000-dim
+    // vector containing the activations of the output neurons (the 1000
+    // imageNet classes). better would be to use the second-to-last layer
+    // instead, which for this network contains 4096 neurons. using this
+    // layer makes a better compact image representation because these
+    // neurons correspond to high-level features but are not as closely
+    // tied to the specific classes of imageNet
+    vector<float> catFeatures = ccv.encode(cat, ccv.numLayers()-1);
+    vector<float> dogFeatures = ccv.encode(dog, ccv.numLayers()-1);
+    vector<float> carFeatures = ccv.encode(car, ccv.numLayers()-1);
+
+    // we take the correlation between every pair of feature
+    // representations and see that the correlation between the
+    // cat and dog pictures is higher than the other two.
+    // this is probably because cats and dogs share a number of
+    // common features
     r_cat_dog = correlation(catFeatures, dogFeatures);
     r_cat_car = correlation(catFeatures, carFeatures);
     r_dog_car = correlation(dogFeatures, carFeatures);

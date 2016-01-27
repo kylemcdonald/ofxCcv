@@ -14,6 +14,7 @@ class ofxCcv {
 private:
     ccv_convnet_t* convnet;
     vector<string> words;
+    int nLayers;
 public:
     class Classification {
     public:
@@ -26,9 +27,10 @@ public:
     ofxCcv();
     ~ofxCcv();
     void setup(string network);
+    int numLayers() {return nLayers;}
     
-    vector<float> encode(ofPixels & img);
-    vector<float> encode(ofBaseHasPixels & img) {return encode(img.getPixels());}
+    vector<float> encode(ofPixels & img, int layer);
+    vector<float> encode(ofBaseHasPixels & img, int layer) {return encode(img.getPixels(), layer);}
     
     template <class T>
     vector<Classification> classify(const T& img, int maxResults = 5) {

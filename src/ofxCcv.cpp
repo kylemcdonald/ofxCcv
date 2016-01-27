@@ -30,10 +30,11 @@ void ofxCcv::setup(string network) {
     for(auto line : buffer.getLines()) {
         words.push_back(line);
     }
+    nLayers = convnet->count;
 }
 
-// get activations of the last layer to get compact representation.
-vector<float> ofxCcv::encode(ofPixels & img) {
+vector<float> ofxCcv::encode(ofPixels & img, int layer) {
+    convnet->count = layer; // hack to extract a particular layer with encode
     vector<float> data;
     ofImage imgCopy;
     imgCopy.setFromPixels(img);
@@ -49,5 +50,6 @@ vector<float> ofxCcv::encode(ofPixels & img) {
     for (int i = 0; i < b->rows * b->cols; i++) {
         data.push_back(b->data.f32[i]);
     }
+    convnet->count = nLayers;   // fix hack
     return data;
 }
