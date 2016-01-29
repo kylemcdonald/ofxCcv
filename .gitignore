@@ -18,3 +18,4 @@ obj/
 bin/
 build/
 !data/
+/.project
