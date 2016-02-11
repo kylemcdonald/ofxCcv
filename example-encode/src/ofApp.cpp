@@ -4,7 +4,8 @@
 void ofApp::setup() {
     //ccv.setup("image-net-2012-vgg-d.sqlite3");
     ccv.setup("image-net-2012.sqlite3");
-
+    if (!ccv.isLoaded()) return;
+    
     cat.load("cat.jpg");
     dog.load("dog.jpg");
     car.load("car.jpg");
@@ -36,8 +37,15 @@ void ofApp::update() {
 }
 
 void ofApp::draw() {
+    if (!ccv.isLoaded()) {
+        ofSetColor(0);
+        ofDrawBitmapString("Network file not found! Check your data folder to make sure it exists.", 20, 20);
+        return;
+    }
+    
     ofBackground(0);
     
+    ofSetColor(255);
     cat.draw(10, 20);
     dog.draw(320, 20);
     car.draw(630, 20);
