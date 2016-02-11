@@ -15,6 +15,9 @@ private:
     ccv_convnet_t* convnet;
     vector<string> words;
     int nLayers;
+    vector<string> layerNames;
+    bool loaded;
+    
 public:
     class Classification {
     public:
@@ -24,11 +27,35 @@ public:
         float confidence;
     };
     
+    class FeatureMap {
+    public:
+        vector<float> acts;
+        int rows;
+        int cols;
+        float max;
+        void getImage(ofImage & img, bool autoBrighten=true);
+    };
+    
+    class FeatureMaps {
+    public:
+        int layer;
+        string type;
+        int rows;
+        int cols;
+        int channels;
+        vector<FeatureMap> maps;
+    };
+    
     ofxCcv();
     ~ofxCcv();
     void setup(string network);
-    int numLayers() {return nLayers;}
+    bool isLoaded() {return loaded;}
     
+    int numLayers() {return nLayers;}
+    vector<string> & getLayerNames() {return layerNames;}
+    FeatureMaps getFeatureMaps(int layer);
+    vector<ofImage> getWeights();
+
     vector<float> encode(ofPixels & img, int layer);
     vector<float> encode(ofBaseHasPixels & img, int layer) {return encode(img.getPixels(), layer);}
     
@@ -55,5 +82,4 @@ public:
         ccv_matrix_free(input);
         return results;
     }
-    
 };
