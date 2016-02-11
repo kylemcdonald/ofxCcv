@@ -58,15 +58,10 @@ void ofApp::draw() {
     // draw feature maps
     if (viewMode == 0) {
         maps = ccv.getFeatureMaps(layer);
-        int rows = maps.rows;   // rows in each feature map
-        int cols = maps.cols;   // cols in each feature map
-        int numMaps = maps.channels;    // num feature maps
-        
         ofImage img;
         img.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
-        for (int m=0; m<numMaps; m++) {
-            ofxCcv::FeatureMap map = maps.maps[m];
-            map.getImage(img);
+        for (int m=0; m<maps.size(); m++) {
+            maps[m].getImage(img);
             ofPushMatrix();
             ofTranslate((m%8)*105, floor(m/8)*105 - scroll);
             img.draw(0, 0, 100, 100);
@@ -74,8 +69,8 @@ void ofApp::draw() {
         }
         
         // draw highlighted
-        if (highlighted != -1 && highlighted < numMaps) {
-            ofxCcv::FeatureMap map = maps.maps[highlighted];
+        if (highlighted != -1 && highlighted < maps.size()) {
+            ofxCcv::FeatureMap map = maps[highlighted];
             map.getImage(img);
             ofPushMatrix();
             ofTranslate(ofClamp((highlighted%8)*105 - 50, 0, ofGetWidth()-220), ofClamp(floor(highlighted/8)*105 - scroll - 50, 20, ofGetHeight()-220));

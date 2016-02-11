@@ -35,17 +35,7 @@ public:
         float max;
         void getImage(ofImage & img, bool autoBrighten=true);
     };
-    
-    class FeatureMaps {
-    public:
-        int layer;
-        string type;
-        int rows;
-        int cols;
-        int channels;
-        vector<FeatureMap> maps;
-    };
-    
+        
     ofxCcv();
     ~ofxCcv();
     void setup(string network);
@@ -53,7 +43,7 @@ public:
     
     int numLayers() {return nLayers;}
     vector<string> & getLayerNames() {return layerNames;}
-    FeatureMaps getFeatureMaps(int layer);
+    vector<ofxCcv::FeatureMap> getFeatureMaps(int layer);
     vector<ofImage> getWeights();
 
     vector<float> encode(ofPixels & img, int layer);

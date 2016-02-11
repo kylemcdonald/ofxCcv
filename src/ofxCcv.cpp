@@ -61,17 +61,12 @@ void ofxCcv::FeatureMap::getImage(ofImage & img, bool autoBrighten) {
     img.setFromPixels(pix);
 }
 
-ofxCcv::FeatureMaps ofxCcv::getFeatureMaps(int layer) {
+vector<ofxCcv::FeatureMap> ofxCcv::getFeatureMaps(int layer) {
     int rows = convnet->acts[layer]->rows;
     int cols = convnet->acts[layer]->cols;
     int channels = CCV_GET_CHANNEL(convnet->acts[layer]->type);
     
-    FeatureMaps maps;
-    maps.type = layerNames[layer];
-    maps.rows = rows;
-    maps.cols = cols;
-    maps.channels = channels;
-
+    vector<FeatureMap> maps;
     for (int c=0; c<channels; c++) {
         FeatureMap map;
         map.rows = rows;
@@ -84,7 +79,7 @@ ofxCcv::FeatureMaps ofxCcv::getFeatureMaps(int layer) {
                 map.max = val;
             }
         }
-        maps.maps.push_back(map);
+        maps.push_back(map);
     }
     return maps;
 }

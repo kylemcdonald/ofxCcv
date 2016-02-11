@@ -16,7 +16,7 @@ public:
     ofVideoGrabber grab;
 
     ofxCcv ccv;
-    ofxCcv::FeatureMaps maps;
+    vector<ofxCcv::FeatureMap> maps;
   
     int layer;
     int inputMode;
