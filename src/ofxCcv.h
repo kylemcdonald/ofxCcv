@@ -45,7 +45,8 @@ public:
     vector<string> & getLayerNames() {return layerNames;}
     vector<ofxCcv::FeatureMap> getFeatureMaps(int layer);
     vector<ofImage> getWeights();
-
+    vector<string> & getClasses() {return words;}
+    
     vector<float> encode(ofPixels & img, int layer);
     vector<float> encode(ofBaseHasPixels & img, int layer) {return encode(img.getPixels(), layer);}
     
@@ -72,4 +73,10 @@ public:
         ccv_matrix_free(input);
         return results;
     }
+    
+    
+    
+    /////////
+    ofImage blah(ofPixels & img, int layer);
+    
 };
