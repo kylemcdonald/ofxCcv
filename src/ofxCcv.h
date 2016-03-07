@@ -73,10 +73,4 @@ public:
         ccv_matrix_free(input);
         return results;
     }
-    
-    
-    
-    /////////
-    ofImage blah(ofPixels & img, int layer);
-    
 };
