@@ -1,5 +1,15 @@
 #include "ofApp.h"
 
+// after encoding two images, you can compare the similarity of their vectors
+// a smaller value means the vectors are more similar.
+float euclideanDistance(vector<float>& a , vector<float>& b) {
+    float total = 0;
+    for(int i = 0; i < a.size(); i++) {
+        float diff = a[i] - b[i];
+        total += diff * diff;
+    }
+    return sqrt(total);
+}
 
 void ofApp::setup() {
     //ccv.setup("image-net-2012-vgg-d.sqlite3");
