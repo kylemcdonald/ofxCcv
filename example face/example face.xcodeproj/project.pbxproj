@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B03AE46F1BF4217500F9010F /* ccv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B03AE46E1BF4215900F9010F /* ccv.a */; };
+		6A5A3AF2E51903FC129D6939 /* ofxCcv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA24FDDC5E989AF2191488A3 /* ofxCcv.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -43,14 +43,14 @@
 
 /* Begin PBXFileReference section */
 		85307C7E25682171EB5DC998 /* ccv.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ccv.h; path = ../../../addons/ofxCcv/libs/ccv/include/ccv.h; sourceTree = SOURCE_ROOT; };
-		B03AE46E1BF4215900F9010F /* ccv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ccv.a; sourceTree = "<group>"; };
 		DE75137AC67515D3FC3624C7 /* ofxCcv.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCcv.h; path = ../../../addons/ofxCcv/src/ofxCcv.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E4B69B5B0A3A1756003C02F2 /* exampleDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exampleDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* example faceDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "example faceDebug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		EA24FDDC5E989AF2191488A3 /* ofxCcv.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxCcv.cpp; path = ../../../addons/ofxCcv/src/ofxCcv.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
-				B03AE46F1BF4217500F9010F /* ccv.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,15 +97,6 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
-		B03AE46C1BF4215900F9010F /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				B03AE46E1BF4215900F9010F /* ccv.a */,
-			);
-			name = lib;
-			path = ../libs/ccv/lib;
-			sourceTree = "<group>";
-		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +108,7 @@
 		CBD10E62E7E6E2DA133E22ED /* src */ = {
 			isa = PBXGroup;
 			children = (
+				EA24FDDC5E989AF2191488A3 /* ofxCcv.cpp */,
 				DE75137AC67515D3FC3624C7 /* ofxCcv.h */,
 			);
 			name = src;
@@ -140,7 +131,7 @@
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				6948EE371B920CB800B5AC1A /* local_addons */,
-				E4B69B5B0A3A1756003C02F2 /* exampleDebug.app */,
+				E4B69B5B0A3A1756003C02F2 /* example faceDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				61711D3347CDFB64FA721D44 /* include */,
-				B03AE46C1BF4215900F9010F /* lib */,
 			);
 			name = ccv;
 			sourceTree = "<group>";
@@ -173,9 +163,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4B69B5A0A3A1756003C02F2 /* example */ = {
+		E4B69B5A0A3A1756003C02F2 /* example face */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "example" */;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "example face" */;
 			buildPhases = (
 				E4B69B580A3A1756003C02F2 /* Sources */,
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
@@ -187,9 +177,9 @@
 			dependencies = (
 				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
 			);
-			name = example;
+			name = "example face";
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* exampleDebug.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* example faceDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -200,7 +190,7 @@
 			attributes = {
 				LastUpgradeCheck = 0600;
 			};
-			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "example" */;
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "example face" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -221,7 +211,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				E4B69B5A0A3A1756003C02F2 /* example */,
+				E4B69B5A0A3A1756003C02F2 /* example face */,
 			);
 		};
 /* End PBXProject section */
@@ -258,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				6A5A3AF2E51903FC129D6939 /* ofxCcv.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +289,7 @@
 					../../../addons/ofxCcv/libs/ccv,
 					../../../addons/ofxCcv/libs/ccv/include,
 					../../../addons/ofxCcv/libs/ccv/lib,
+					../../../addons/ofxCcv/libs/ccv/lib/osx,
 					../../../addons/ofxCcv/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -305,6 +297,11 @@
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-mtune=native",
+				);
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxCcv/libs/ccv/lib/osx/ccv.a,
 				);
 				SDKROOT = macosx;
 			};
@@ -337,12 +334,18 @@
 					../../../addons/ofxCcv/libs/ccv,
 					../../../addons/ofxCcv/libs/ccv/include,
 					../../../addons/ofxCcv/libs/ccv/lib,
+					../../../addons/ofxCcv/libs/ccv/lib/osx,
 					../../../addons/ofxCcv/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-mtune=native",
+				);
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxCcv/libs/ccv/lib/osx/ccv.a,
 				);
 				SDKROOT = macosx;
 			};
@@ -369,15 +372,18 @@
 					../../../addons/ofxCcv/libs/ccv,
 					../../../addons/ofxCcv/libs/ccv/include,
 					../../../addons/ofxCcv/libs/ccv/lib,
+					../../../addons/ofxCcv/libs/ccv/lib/osx,
 					../../../addons/ofxCcv/src,
 				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/gene/Code/of_v0.9.0_osx_release/addons/ofxCcv/libs/ccv/lib,
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxCcv/libs/ccv/lib/osx/ccv.a,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -404,15 +410,18 @@
 					../../../addons/ofxCcv/libs/ccv,
 					../../../addons/ofxCcv/libs/ccv/include,
 					../../../addons/ofxCcv/libs/ccv/lib,
+					../../../addons/ofxCcv/libs/ccv/lib/osx,
 					../../../addons/ofxCcv/src,
 				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/gene/Code/of_v0.9.0_osx_release/addons/ofxCcv/libs/ccv/lib,
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxCcv/libs/ccv/lib/osx/ccv.a,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -423,7 +432,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "example" */ = {
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "example face" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B4E0A3A1720003C02F2 /* Debug */,
@@ -432,7 +441,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "example" */ = {
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "example face" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B600A3A1757003C02F2 /* Debug */,
