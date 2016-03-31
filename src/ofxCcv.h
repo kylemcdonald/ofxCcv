@@ -23,7 +23,7 @@ private:
     ccv_dense_matrix_t image;
     ccv_scd_classifier_cascade_t* cascade;
     
-    //
+    //needed for pedestrian detection
     ccv_icf_classifier_cascade_t* cascadePedestrians;
 public:
     
@@ -93,15 +93,8 @@ public:
     vector<ofRectangle> classifyFace(const TT& img) {
         
         vector<ofRectangle> results;
-        //http://libccv.org/tutorial/
-        
-        
+
          image = toCcv(img);
-        
-        // ccv_dense_matrix_t* input = &image; //0;
-        
-        // ccv_read(&image, &input, CCV_IO_RGB_COLOR | CCV_IO_ANY_FILE);
-        //ccv_convnet_input_formation(convnet->input, &image, &input);
         
         ccv_array_t* faces = ccv_scd_detect_objects(&image, &cascade, 1, ccv_scd_default_params);
         int i;
@@ -109,13 +102,9 @@ public:
         {
             ccv_comp_t* face = (ccv_comp_t*)ccv_array_get(faces, i);
             results.push_back(ofRectangle(face->rect.x, face->rect.y, face->rect.width, face->rect.height));
-            printf("%d %d %d %d\n", face->rect.x, face->rect.y, face->rect.width, face->rect.height);
+//            printf("%d %d %d %d\n", face->rect.x, face->rect.y, face->rect.width, face->rect.height);
         }
         ccv_array_free(faces);
-        //ccv_scd_classifier_cascade_free(cascade);
-        // ccv_matrix_free(&image);
-        //ccv_matrix_free(input);
-        
         return results;
     }
     
@@ -123,9 +112,7 @@ public:
     vector<ofRectangle> classifyPedestrians(const TTT& img) {
         
         vector<ofRectangle> results;
-        //http://libccv.org/tutorial/
-        
-        //    ccv_read(imagenetFilename.c_str(), &image, CCV_IO_ANY_FILE | CCV_IO_RGB_COLOR);
+
         image = toCcv(img);
         
         unsigned int elapsed_time = ofGetElapsedTimeMillis(); // get_current_time();
@@ -137,33 +124,12 @@ public:
         {
             ccv_comp_t* comp = (ccv_comp_t*)ccv_array_get(seq, i);
             results.push_back(ofRectangle(comp->rect.x, comp->rect.y, comp->rect.width, comp->rect.height));
-//comp->classification.confidence
-            printf("%d %d %d %d %f\n", comp->rect.x, comp->rect.y, comp->rect.width, comp->rect.height, comp->classification.confidence);
+//            printf("%d %d %d %d %f\n", comp->rect.x, comp->rect.y, comp->rect.width, comp->rect.height, comp->classification.confidence);
         }
-        printf("total : %d in time %dms\n", seq->rnum, elapsed_time);
+//        printf("total : %d in time %dms\n", seq->rnum, elapsed_time);
         ccv_array_free(seq);
-        //ccv_matrix_free(image);
-        //ccv_icf_classifier_cascade_free(cascade);
         
-        /*
-        // ccv_dense_matrix_t* input = &image; //0;
-        
-        // ccv_read(&image, &input, CCV_IO_RGB_COLOR | CCV_IO_ANY_FILE);
-        //ccv_convnet_input_formation(convnet->input, &image, &input);
-        
-        ccv_array_t* faces = ccv_scd_detect_objects(&image, &cascade, 1, ccv_scd_default_params);
-        int i;
-        for (i = 0; i < faces->rnum; i++)
-        {
-            ccv_comp_t* face = (ccv_comp_t*)ccv_array_get(faces, i);
-            results.push_back(ofRectangle(face->rect.x, face->rect.y, face->rect.width, face->rect.height));
-            printf("%d %d %d %d\n", face->rect.x, face->rect.y, face->rect.width, face->rect.height);
-        }
-        ccv_array_free(faces);
-        //ccv_scd_classifier_cascade_free(cascade);
-        // ccv_matrix_free(&image);
-        //ccv_matrix_free(input);
-        */
+
         return results;
     }
 };
