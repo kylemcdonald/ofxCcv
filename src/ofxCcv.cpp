@@ -51,6 +51,16 @@ void ofxCcv::setup(string network) {
     }
 }
 
+void ofxCcv::setupFace(string network) {
+    string imagenetFilename = ofToDataPath(network);
+    cascade = ccv_scd_classifier_cascade_read(imagenetFilename.c_str());
+}
+
+void ofxCcv::setupPedestrians(string network){
+    string imagenetFilename = ofToDataPath(network);
+    cascadePedestrians = ccv_icf_read_classifier_cascade(imagenetFilename.c_str());
+}
+
 void ofxCcv::FeatureMap::getImage(ofImage & img, bool autoBrighten) {
     float mul = autoBrighten ? 255.0 / max : 1.0;
     ofPixels pix;

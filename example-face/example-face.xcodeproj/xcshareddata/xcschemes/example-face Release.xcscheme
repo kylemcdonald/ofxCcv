@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "example-classify.app"
-               BlueprintName = "example-classify"
-               ReferencedContainer = "container:example-classify.xcodeproj">
+               BuildableName = "example-face.app"
+               BlueprintName = "example-face"
+               ReferencedContainer = "container:example-face.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "example-classify.app"
-            BlueprintName = "example-classify"
-            ReferencedContainer = "container:example-classify.xcodeproj">
+            BuildableName = "example-face.app"
+            BlueprintName = "example-face"
+            ReferencedContainer = "container:example-face.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "example-classify.app"
-            BlueprintName = "example-classify"
-            ReferencedContainer = "container:example-classify.xcodeproj">
+            BuildableName = "example-face.app"
+            BlueprintName = "example-face"
+            ReferencedContainer = "container:example-face.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "example-classify.app"
-            BlueprintName = "example-classify"
-            ReferencedContainer = "container:example-classify.xcodeproj">
+            BuildableName = "example-face.app"
+            BlueprintName = "example-face"
+            ReferencedContainer = "container:example-face.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
