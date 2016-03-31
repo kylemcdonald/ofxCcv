@@ -1,4 +1,4 @@
 # ofxCcv example-pedestrian
 
 Screen Shot
-![](https://github.com/antimodular/ofxCcv/blob/master/example%20face/Screen%20Shot%202016-01-07%20at%202.39.26%20PM.png)
+![](https://raw.githubusercontent.com/antimodular/ofxCcv/master/example-pedestrian/Screen%20Shot%202016-03-09%20at%204.13.38%20PM.jpg)
