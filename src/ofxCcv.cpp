@@ -133,7 +133,7 @@ vector<float> ofxCcv::encode(const ofPixels& pix, int layer) {
     ccv_dense_matrix_t* input = 0;
     ccv_size_t size = ccv_size(225, 225);   // size of the default net, this may need to be changed
     ccv_convnet_input_formation(size, &image, &input);
-    ccv_dense_matrix_t* b = 0;
+    ccv_dense_matrix_t* b = nullptr;
     ccv_convnet_encode(convnet, &input, &b, 1);
     int numChannels = CCV_GET_CHANNEL(b->type);
     int numElements = b->rows * b->cols * numChannels;

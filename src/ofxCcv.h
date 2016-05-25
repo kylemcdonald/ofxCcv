@@ -11,18 +11,18 @@ ccv_dense_matrix_t toCcv(const ofBaseHasPixels& pix);
 
 class ofxCcv {
 private:
-    ccv_convnet_t* convnet;
+    ccv_convnet_t* convnet = nullptr;
     vector<string> words;
-    int nLayers;
+    int nLayers = 0;
     vector<string> layerNames;
-    bool loaded;
+    bool loaded = false;
     
     //needed for face detection
     ccv_dense_matrix_t image;
-    ccv_scd_classifier_cascade_t* cascade;
+    ccv_scd_classifier_cascade_t* cascade = nullptr;
     
     //needed for pedestrian detection
-    ccv_icf_classifier_cascade_t* cascadePedestrians;
+    ccv_icf_classifier_cascade_t* cascadePedestrians = nullptr;
     
 public:
     
@@ -65,7 +65,7 @@ public:
         vector<Classification> results;
         ccv_dense_matrix_t image;
         image = toCcv(img);
-        ccv_dense_matrix_t* input = 0;
+        ccv_dense_matrix_t* input = nullptr;
         ccv_convnet_input_formation(convnet->input, &image, &input);
         ccv_array_t* rank = 0;
         ccv_convnet_classify(convnet, &input, 1, &rank, maxResults, 1);
