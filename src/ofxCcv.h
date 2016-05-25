@@ -45,9 +45,9 @@ public:
         
     ofxCcv();
     ~ofxCcv();
-    void setup(string network);
-    void setupFace(string network);
-    void setupPedestrians(string network);
+    void setup(const std::string& network);
+    void setupFace(const std::string& network);
+    void setupPedestrians(const std::string& network);
     
     bool isLoaded() {return loaded;}
     
@@ -57,8 +57,8 @@ public:
     vector<ofImage> getWeights();
     vector<string> & getClasses() {return words;}
     
-    vector<float> encode(ofPixels & img, int layer);
-    vector<float> encode(ofBaseHasPixels & img, int layer) {return encode(img.getPixels(), layer);}
+    vector<float> encode(const ofPixels& img, int layer);
+    vector<float> encode(const ofBaseHasPixels& img, int layer) {return encode(img.getPixels(), layer);}
     
     template <class T>
     vector<Classification> classify(const T& img, int maxResults = 5) {

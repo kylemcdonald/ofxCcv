@@ -24,7 +24,7 @@ ofxCcv::~ofxCcv() {
     ccv_drain_cache();
 }
     
-void ofxCcv::setup(string network) {
+void ofxCcv::setup(const std::string& network) {
     string imagenetFilename = ofToDataPath(network);
     loaded = ofFile::doesFileExist(ofToDataPath(network));
     if (!loaded) {
@@ -51,12 +51,12 @@ void ofxCcv::setup(string network) {
     }
 }
 
-void ofxCcv::setupFace(string network) {
+void ofxCcv::setupFace(const std::string& network) {
     string imagenetFilename = ofToDataPath(network);
     cascade = ccv_scd_classifier_cascade_read(imagenetFilename.c_str());
 }
 
-void ofxCcv::setupPedestrians(string network){
+void ofxCcv::setupPedestrians(const std::string& network){
     string imagenetFilename = ofToDataPath(network);
     cascadePedestrians = ccv_icf_read_classifier_cascade(imagenetFilename.c_str());
 }
@@ -122,7 +122,7 @@ vector<ofImage> ofxCcv::getWeights() {
     return weightImgs;
 }
 
-vector<float> ofxCcv::encode(ofPixels & img, int layer) {
+vector<float> ofxCcv::encode(const ofPixels& pix, int layer) {
     convnet->count = layer; // hack to extract a particular layer with encode
     vector<float> data;
     ofImage imgCopy;
