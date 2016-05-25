@@ -25,7 +25,6 @@ private:
     ccv_icf_classifier_cascade_t* cascadePedestrians = nullptr;
     
 public:
-    
     class Classification {
     public:
         int imageNetId;
@@ -69,8 +68,7 @@ public:
         ccv_convnet_input_formation(convnet->input, &image, &input);
         ccv_array_t* rank = 0;
         ccv_convnet_classify(convnet, &input, 1, &rank, maxResults, 1);
-        int i;
-        for (i = 0; i < rank->rnum; i++) {
+        for (int i = 0; i < rank->rnum; i++) {
             ccv_classification_t* classification = (ccv_classification_t*)ccv_array_get(rank, i);
             Classification result;
             result.imageNetId = classification->id + 1;
@@ -92,8 +90,8 @@ public:
          image = toCcv(img);
         
         ccv_array_t* faces = ccv_scd_detect_objects(&image, &cascade, 1, ccv_scd_default_params);
-        int i;
-        for (i = 0; i < faces->rnum; i++)
+        
+        for (int i = 0; i < faces->rnum; i++)
         {
             ccv_comp_t* face = (ccv_comp_t*)ccv_array_get(faces, i);
             results.push_back(ofRectangle(face->rect.x, face->rect.y, face->rect.width, face->rect.height));
