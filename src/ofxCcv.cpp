@@ -18,13 +18,22 @@ ofxCcv::ofxCcv() {
 }
     
 ofxCcv::~ofxCcv() {
+    if (cascade) {
+        ccv_scd_classifier_cascade_free(cascade);
+    }
+    
+    if (cascadePedestrians) {
+        ccv_icf_classifier_cascade_free(cascadePedestrians);
+    }
+    
     if(convnet) {
         ccv_convnet_free(convnet);
     }
+    
     ccv_drain_cache();
 }
     
-void ofxCcv::setup(const std::string& network) {
+void ofxCcv::setup(const std::string& network, const std::string& labels) {
     string imagenetFilename = ofToDataPath(network);
     loaded = ofFile::doesFileExist(ofToDataPath(network));
     if (!loaded) {
@@ -32,15 +41,26 @@ void ofxCcv::setup(const std::string& network) {
         return;
     }
     
-    convnet = ccv_convnet_read(0, imagenetFilename.c_str());
-    ofBuffer buffer = ofBufferFromFile("image-net-2012.words");
+    if(convnet) {
+        ccv_convnet_free(convnet);
+    }
+
+    convnet = ccv_convnet_read(0, imagenetFilename.data());
+    
+    ofBuffer buffer = ofBufferFromFile(labels);
+    
     for(auto line : buffer.getLines()) {
         words.push_back(line);
     }
     
     nLayers = convnet->count;
     layerNames.clear();
-    int convLayers=0, fcLayers=0, lrnLayers=0, poolLayers=0;
+    
+    int convLayers=0;
+    int fcLayers=0;
+    int lrnLayers=0;
+    int poolLayers=0;
+    
     for (int i=0; i<nLayers-1; i++) {
         int type = convnet->layers[i].type;
         if      (type == CCV_CONVNET_CONVOLUTIONAL) layerNames.push_back("CONV_"+ofToString(convLayers++));
@@ -53,12 +73,22 @@ void ofxCcv::setup(const std::string& network) {
 
 void ofxCcv::setupFace(const std::string& network) {
     string imagenetFilename = ofToDataPath(network);
-    cascade = ccv_scd_classifier_cascade_read(imagenetFilename.c_str());
+    
+    if (cascade) {
+        ccv_scd_classifier_cascade_free(cascade);
+    }
+    
+    cascade = ccv_scd_classifier_cascade_read(imagenetFilename.data());
 }
 
 void ofxCcv::setupPedestrians(const std::string& network){
     string imagenetFilename = ofToDataPath(network);
-    cascadePedestrians = ccv_icf_read_classifier_cascade(imagenetFilename.c_str());
+        
+    if (cascadePedestrians) {
+        ccv_icf_classifier_cascade_free(cascadePedestrians);
+    }
+
+    cascadePedestrians = ccv_icf_read_classifier_cascade(imagenetFilename.data());
 }
 
 void ofxCcv::FeatureMap::getImage(ofImage & img, bool autoBrighten) {
@@ -71,7 +101,7 @@ void ofxCcv::FeatureMap::getImage(ofImage & img, bool autoBrighten) {
     img.setFromPixels(pix);
 }
 
-vector<ofxCcv::FeatureMap> ofxCcv::getFeatureMaps(int layer) {
+vector<ofxCcv::FeatureMap> ofxCcv::getFeatureMaps(int layer) const {
     int rows = convnet->acts[layer]->rows;
     int cols = convnet->acts[layer]->cols;
     int channels = CCV_GET_CHANNEL(convnet->acts[layer]->type);
@@ -94,7 +124,7 @@ vector<ofxCcv::FeatureMap> ofxCcv::getFeatureMaps(int layer) {
     return maps;
 }
 
-vector<ofImage> ofxCcv::getWeights() {
+vector<ofImage> ofxCcv::getWeights() const {
     int layer = 0;
     int wnum = convnet->layers[layer].wnum;
     int wrows = 7;
@@ -122,24 +152,39 @@ vector<ofImage> ofxCcv::getWeights() {
     return weightImgs;
 }
 
-vector<float> ofxCcv::encode(const ofPixels& pix, int layer) {
+vector<float> ofxCcv::encode(const ofPixels& pix, int layer) const {
     convnet->count = layer; // hack to extract a particular layer with encode
-    vector<float> data;
-    ofImage imgCopy;
-    imgCopy.setFromPixels(img);
-    imgCopy.resize(224, 224); // resize to AlexNet input size (224x224)
+
     ccv_dense_matrix_t image;
-    image = toCcv(imgCopy);
-    ccv_dense_matrix_t* input = 0;
-    ccv_size_t size = ccv_size(225, 225);   // size of the default net, this may need to be changed
+
+    if (pix.getWidth() != 224 || pix.getHeight() != 224)
+    {
+        ofImage imgCopy;
+        imgCopy.setUseTexture(false);
+        imgCopy.setFromPixels(pix);
+        imgCopy.resize(224, 224); // resize to AlexNet input size (224x224)
+        image = toCcv(imgCopy);
+    }
+    else
+    {
+        image = toCcv(pix);
+    }
+
+    ccv_dense_matrix_t* input = nullptr;
+    ccv_size_t size = ccv_size(225, 225); // size of the default net, this may need to be changed
     ccv_convnet_input_formation(size, &image, &input);
     ccv_dense_matrix_t* b = nullptr;
     ccv_convnet_encode(convnet, &input, &b, 1);
+
     int numChannels = CCV_GET_CHANNEL(b->type);
     int numElements = b->rows * b->cols * numChannels;
-    for (int i = 0; i < numElements; i++) {
-        data.push_back(b->data.f32[i]);
-    }
+
     convnet->count = nLayers;   // fix hack
+    
+    std::vector<float> data(b->data.f32, b->data.f32 + numElements);
+    
+    ccv_matrix_free(input);
+    ccv_matrix_free(b);
+
     return data;
 }
