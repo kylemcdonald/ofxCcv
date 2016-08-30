@@ -102,11 +102,13 @@ void ofxCcv::FeatureMap::getImage(ofImage & img, bool autoBrighten) {
 }
 
 vector<ofxCcv::FeatureMap> ofxCcv::getFeatureMaps(int layer) const {
+	vector<FeatureMap> maps;
+    if (convnet->acts[layer] == NULL) {
+        return maps;
+    }
     int rows = convnet->acts[layer]->rows;
     int cols = convnet->acts[layer]->cols;
     int channels = CCV_GET_CHANNEL(convnet->acts[layer]->type);
-    
-    vector<FeatureMap> maps;
     for (int c=0; c<channels; c++) {
         FeatureMap map;
         map.rows = rows;
