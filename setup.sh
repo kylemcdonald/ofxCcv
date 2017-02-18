@@ -15,7 +15,7 @@ mkdir -p $DIR
 mkdir -p $DIR2
 mkdir -p $DIR3
 mkdir -p $DIR4
-if [ ! -e $DB_FILE ] ; then
+if [ ! -e $DIR$DB_FILE ] ; then
 echo "Downloading image-net-2012 network (ccv)"
 curl -o $DIR$DB_FILE $DB_URL
 curl -o $DIR$WORDS_FILE $WORDS_URL
