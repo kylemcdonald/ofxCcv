@@ -29,6 +29,9 @@ void ofApp::draw() {
     }
     ofSetColor(255);
     cam.draw(0, 0);
+    if (results.size() < 1) {
+        ofDrawBitmapStringHighlight("press any key to detect", 10, 20);
+    }
     ofPushStyle();
     ofTranslate(5, 5);
     for(int i = 0; i < results.size(); i++) {
