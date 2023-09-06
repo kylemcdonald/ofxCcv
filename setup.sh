@@ -5,7 +5,8 @@ DIR2="example-encode/bin/data/"
 DIR3="example-viewer/bin/data/"
 DIR4="example-occlusion/bin/data/"
 
-DB_URL="https://raw.githubusercontent.com/liuliu/ccv/unstable/samples/image-net-2012.sqlite3"
+DB_URL="http://static.libccv.org/image-net-2012.sqlite3"
+#DB_URL="http://static.libccv.org/image-net-2012-vgg-d.sqlite3"
 WORDS_URL="https://raw.githubusercontent.com/liuliu/ccv/unstable/samples/image-net-2012.words"
 
 DB_FILE="image-net-2012.sqlite3"
